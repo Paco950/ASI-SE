@@ -55,6 +55,18 @@
             <li><a href="./almacen.php">Almacén</a></li>
           </ul>
         </li>
+		
+		<li class="treeview">
+          <a href="#"><i class="fa fa-file-text-o"></i> <span>Contabilidad/Finanzas</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="./finanzas.php">Finanzas</a></li>
+            <li><a href="./contabilidad.php">Contabilidad</a></li>
+          </ul>
+        </li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
