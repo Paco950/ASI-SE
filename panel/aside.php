@@ -40,19 +40,9 @@
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="./inventario.php">Inventario</a></li>
-            <li><a href="./almacen.php">Almacén</a></li>
-          </ul>
-        </li>
-		<li class="treeview">
-          <a href="#"><i class="fa fa-file-text-o"></i> <span>Almacen/Inventario</span>
-            <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="./inventario.php">Inventario</a></li>
-            <li><a href="./almacen.php">Almacén</a></li>
+            <li><a href="./materia_prima.php">Materias primas</a></li>
+            <li><a href="./almacen_mp.php">Almacén de materias primas</a></li>
+            <li><a href="./almacen_pt.php">Almacén de productos terminados</a></li>
           </ul>
         </li>
 		
