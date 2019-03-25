@@ -24,7 +24,14 @@ DROP TABLE IF EXISTS `almacen_mp`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `almacen_mp` (
   `id_almacenmp` int(5) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id_almacenmp`)
+  `id_mp` int(5) NOT NULL,
+  `codigo_amp` varchar(100) NOT NULL,
+  `stock` varchar(50) NOT NULL,
+  `descripcion` text NOT NULL,
+  `precio_bruto` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`id_almacenmp`),
+  KEY `id_mp` (`id_mp`),
+  CONSTRAINT `almacen_mp_ibfk_1` FOREIGN KEY (`id_mp`) REFERENCES `materia_prima` (`id_mp`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -45,8 +52,17 @@ DROP TABLE IF EXISTS `almacen_pt`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `almacen_pt` (
-  `id_almacen` int(5) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id_almacen`)
+  `id_almacenpt` int(5) NOT NULL AUTO_INCREMENT,
+  `codigo_apt` varchar(50) NOT NULL,
+  `stock_pt` int(10) NOT NULL,
+  `talla` int(2) NOT NULL,
+  `precio_neto` decimal(10,2) NOT NULL,
+  `imagen_pt` varchar(100) NOT NULL,
+  `descripcion` text NOT NULL,
+  `id_produccion` int(5) NOT NULL,
+  PRIMARY KEY (`id_almacenpt`),
+  KEY `id_produccion` (`id_produccion`),
+  CONSTRAINT `almacen_pt_ibfk_1` FOREIGN KEY (`id_produccion`) REFERENCES `produccion` (`id_produccion`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -101,7 +117,7 @@ CREATE TABLE `almacenpt_venta` (
   PRIMARY KEY (`id_almacen_venta`),
   KEY `id_almacen` (`id_almacen`),
   KEY `id_venta` (`id_venta`),
-  CONSTRAINT `almacenpt_venta_ibfk_1` FOREIGN KEY (`id_almacen`) REFERENCES `almacen_pt` (`id_almacen`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `almacenpt_venta_ibfk_1` FOREIGN KEY (`id_almacen`) REFERENCES `almacen_pt` (`id_almacenpt`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `almacenpt_venta_ibfk_2` FOREIGN KEY (`id_venta`) REFERENCES `venta` (`id_venta`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -206,10 +222,10 @@ CREATE TABLE `materia_prima` (
   `id_mp` int(5) NOT NULL AUTO_INCREMENT,
   `nombre_mp` varchar(45) NOT NULL,
   `color` varchar(15) NOT NULL,
-  `id_almacenmp` int(5) NOT NULL,
-  PRIMARY KEY (`id_mp`),
-  KEY `id_almacenmp` (`id_almacenmp`),
-  CONSTRAINT `materia_prima_ibfk_1` FOREIGN KEY (`id_almacenmp`) REFERENCES `almacen_mp` (`id_almacenmp`) ON DELETE CASCADE ON UPDATE CASCADE
+  `tipo_tela` int(5) NOT NULL,
+  `tipo_cantidad` int(5) NOT NULL,
+  `imagen` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_mp`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -261,10 +277,7 @@ CREATE TABLE `produccion` (
   `id_produccion` int(5) NOT NULL AUTO_INCREMENT,
   `tipo_producto` varchar(45) NOT NULL,
   `categoria` varchar(435) NOT NULL,
-  `id_almacen` int(5) NOT NULL,
-  PRIMARY KEY (`id_produccion`),
-  KEY `id_almacen` (`id_almacen`),
-  CONSTRAINT `produccion_ibfk_1` FOREIGN KEY (`id_almacen`) REFERENCES `almacen_pt` (`id_almacen`) ON DELETE CASCADE ON UPDATE CASCADE
+  PRIMARY KEY (`id_produccion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -447,4 +460,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-03-24 20:36:28
+-- Dump completed on 2019-03-24 23:37:46
