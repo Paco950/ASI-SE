@@ -43,14 +43,51 @@
                                 <th>Color</th>
                                 <th>Tipo de tela</th>
                                 <th>Cantidad</th>
+                                <th>Tipo de cantidad</th>
                                 <th>Imagen</th>
                                 <th>Proveedor</th>
                                 <th>Eliminar</th>
                                 <th>Actualizar</th>
                             </thead>
                             <tbody>
+                                <?php 
+                                  $count = 0;
+                                  $query = "SELECT *FROM materia_prima;";
+                                  $query_result = mysqli_query($conexion, $query);
+                                  while (($row = mysqli_fetch_array($query_result)) != NULL) {
+                                    echo '<tr>';
+                                    echo '<td>'.++$count.'</td>';
+                                    echo '<td>'.$row['nombre_mp'].'</td>';
+                                    echo '<td>'.$row['color'].'</td>';
+                                    if ($row['tipo_tela'] == 0) {
+                                      echo '<td>Ninguna</td>';
+                                    }//end of if
+                                    else if($row['tipo_tela'] == 1) {
+                                      echo '<td>Mezclilla</td>';
+                                    }//end of else
+                                    elseif($row['tipo_tela'] == 2) {
+                                      echo '<td>Licra</td>';
+                                    }//end of else
+                                    else if($row['tipo_tela'] == 3) {
+                                      echo '<td>Chifón</td>';
+                                    }//end of else
+                                    echo '<td>'.$row['cantidad'].'</td>';
+                                    if($row['tipo_cantidad'] == 1) {
+                                      echo '<td>Metros</td>';
+                                    }//end of if
+                                    else {
+                                      echo '<td>Kilos</td>';
+                                    }//end of else
+                                    echo '<td><img src="../dist/img/productos/'.$row['imagen'].'" width="40% height="40%"></td>';
+                                    echo '<td></td>';
+                                    echo '<td align="center"><a type="button" onclick="eliminarMP('.$row['id_mp'].')" class="btn btn-primary"><i class="fa fa-trash"> </i></a></td>';
+                                    echo '<td align="center"><a type="button" class="btn btn-warning"><i class="fa fa-edit"> </i></a></td>';
+                                    echo '</tr>';
+                                  }
+                                ?>
                                 
                             </tbody>
+                            
                         </table>
                     </div>
                     <!-- /.box-body -->
@@ -165,8 +202,7 @@
 <script src="../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script>
   $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
+    $('#example1').DataTable()({
       'paging'      : true,
       'lengthChange': false,
       'searching'   : false,
@@ -181,3 +217,12 @@
      user experience. -->
 </body>
 </html>
+<?php mysqli_close($conexion);?>
+<script type="text/javascript">
+  const eliminarMP = (id_mp) => {
+    let confirmar = confirm("¿Deseas eliminar este registro?");
+    if(confirmar) {
+      window.location = "../adm/eliminar_mp.php?valor="+id_mp;
+    }//end of if
+  };
+</script>

@@ -34,7 +34,7 @@
                     </div>
                     <!-- /.box-header -->
                     <!-- form start -->
-                    <form role="form" method="POST" action="../adm/agregar_materia_prima.php">
+                    <form role="form" method="POST" action="../adm/agregar_materia_prima.php" enctype="multipart/form-data">
                         <div class="box-body">
                             <div class="form-row">
                                 <div class="input-icon-group col-md-3 mb-3">
@@ -56,21 +56,17 @@
                                     <select name="tipo-tela" class="form-control" required>
                                     <option value="0">Seleccionar</option>
                                     <option value="1">Ninguna</option>
-                                    <option value="2">Pans</option>
-                                    <option value="3">Compuesto</option>
+                                    <option value="2">Mezclilla</option>
+                                    <option value="3">Licra</option> 
+                                    <option value="3">Chifón</option> 
                                     </select>
                                 </div>
 
                                 <div class="input-icon-group col-md-3 mb-3">
                                     <label>Cantidad</label>
-                                    <select name="cantidad" class="form-control" required>
-                                    <option value="0">Seleccionar</option>
-                                    <option value="1">Ninguna</option>
-                                    <option value="2">Pieza</option>
-                                    <option value="3">Docena</option>
-                                    <option value="4">1/2 Docena</option>
-                                    <option value="5">Rollo</option>
-                                    </select>
+                                    <div class="input-icon-append">
+                                        <input type="text" name="cantidad" class="form-control" required placeholder="10 m">
+                                    </div>
                                 </div>
                             </div>
                             <br>
@@ -80,16 +76,24 @@
                             
                             <div class="form-row">
                                 <div class="input-icon-group col-md-3 mb-3">
+                                  <label>Tipo de cantidad</label>
+                                  <select name="tipo-cantidad" class="form-control" required>
+                                    <option value="0">Seleccionar</option>
+                                    <option value="1">Metros</option>
+                                    <option value="2">Kilos</option>
+                                  </select>
+                                </div>
+                                <div class="input-icon-group col-md-3 mb-3">
                                     <label>Imagén</label>
                                     <div class="input-icon-append">
-                                        <input type="file" name="img-mp" class="form-control" placeholder="" required>
+                                        <input type="file" name="img_mp" class="form-control" placeholder="" required>
                                     </div>
                                 </div>
                                 <div class="input-icon-group col-md-3 mb-3">
                                     <label>Proveedor</label>
                                     <select name="proveedor" class="form-control" required>
                                       <option value="-1">Seleccionar</option>
-                                      <option value="0">Propio</option>
+                                      <option value="0">Ninguno</option>
                                     </select>
                                 </div>
                             </div>

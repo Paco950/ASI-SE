@@ -6,7 +6,8 @@
             window.location = "../"
         </script>
     ';
-}//end of if
+  }//end of if
+  include '../adm/conexion.php';
 ?> 
 <!DOCTYPE html>
 <!--
