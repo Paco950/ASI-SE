@@ -40,13 +40,26 @@
 					</div>
 				</div>
 				</form>
-          <!-- /.box -->
+				<div class="box-body">
+					<table id="example1" class="table table-bordered table-striped">
+						<thead>
+							<th>Codigo</th>
+							<th>Nombre</th>
+							<th>Unidad</th>
+							<th>Precio unitario</th>
+							<th>En inventario</th>
+							<th>Cantidad</th>
+							<th style="width:100px;"></th>
+						</thead>
+						<tbody>
+										
+						</tbody>
+					</table>
 			</div>
-		   </div>
-		</div>
-		</div>
-
-        
+			</div>
+            </div>
+            <!-- /.box -->
+        </div>
     </section>
     <!-- /.content -->
   </div>
@@ -149,12 +162,25 @@
 <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../dist/js/adminlte.min.js"></script>
-
+<!-- DataTables -->
+<script src="../bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="../bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script>
+  $(function () {
+    $('#example1').DataTable()
+    $('#example2').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : false,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : false
+    })
+  })
+</script>
 <!-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. -->
 </body>
 </html>
-
-<!-- administracion de la producción -->
-<!-- contabilidad industrial -->
+          
