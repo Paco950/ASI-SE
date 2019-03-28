@@ -51,6 +51,15 @@
 							<th>Cantidad</th>
 							<th style="width:100px;"></th>
 						</thead>
+								</td>
+								<td>
+								<input type="hidden" name="product_id" value="<?php echo $product->id; ?>">
+								<input type="" class="form-control" required name="q" placeholder="Cantidad de producto ..."></td>
+								<td style="width:183px;">
+								<button type="submit" class="btn btn-primary"><i class="glyphicon glyphicon-shopping-cart"></i> Agregar a la venta</button>
+								</td>
+							</tr>
+							</form>
 						<tbody>
 										
 						</tbody>
