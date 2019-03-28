@@ -78,7 +78,7 @@
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="./finanzas.php">Hacer venta</a></li>
+            <li><a href="./venta.php">Hacer venta</a></li>
             <li><a href="./contabilidad.php">Historial de ventas</a></li>
 			<li><a href="./contabilidad.php">Reportes</a></li>
           </ul>
