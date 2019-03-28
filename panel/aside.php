@@ -69,6 +69,21 @@
            
           </ul>
         </li>
+		
+		
+		<li class="treeview">
+          <a href="#"><i class="fa fa-file-text-o"></i> <span>Punto de venta</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="./finanzas.php">Hacer venta</a></li>
+            <li><a href="./contabilidad.php">Historial de ventas</a></li>
+			<li><a href="./contabilidad.php">Reportes</a></li>
+          </ul>
+        </li>
+		
       </ul>
       <!-- /.sidebar-menu -->
     </section>
