@@ -57,6 +57,18 @@
             <li><a href="./contabilidad.php">Contabilidad</a></li>
           </ul>
         </li>
+
+        <li class="treeview">
+          <a href="#"><i class="fa fa-file-text-o"></i> <span>Produccion</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="./produccion1.php">Iniciar-Produccion</a></li>
+           
+          </ul>
+        </li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
